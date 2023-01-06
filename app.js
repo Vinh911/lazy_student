@@ -1,5 +1,6 @@
 const fs = require('fs');
 const readLine = require('readline');
+const client = require('https');
 
 function updateProgress(progress, total) {
     let current = 0;
@@ -43,9 +44,10 @@ function downloadFiles(file, total) {
         rl.on('line', (line) => {
             if(line.length > 0) {
                 console.log(`Downloading ${line}...`);
-                fetch(line).then((res) => {
-                    const dest = fs.createWriteStream(`./downloads/${line.split('/').pop()}`);
-                    res.body.pipe(dest);
+                // Download file
+                const file = fs.createWriteStream(`./downloads/${index}.png`);
+                client.get(line, response => {
+                    response.pipe(file);
                 });
             }
             updateProgress(index, total);
