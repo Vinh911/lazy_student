@@ -1,5 +1,5 @@
 # lazy student Js
-This code reads a file, counts the number of lines in the file, and then downloads the files specified on each line of the file. The progress of the download is displayed in the console with a progress bar.
+This code reads a file, counts the number of lines, and then fetches the links specified on each line. The progress of the download is displayed in the console with a progress bar.
 
 # Dependencies
 This code uses the following dependencies:
